@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $rbnb_blue;
+  background: $gray;
   height: 70px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
@@ -23,7 +23,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 200px;
 }
 
 .navbar-lewagon li {
@@ -35,3 +35,4 @@
   display: flex;
   align-items: center;
 }
+
