@@ -17,8 +17,8 @@ puts "Deleting all models"
 puts "Generating Users"
 puts "Login user"
 puts "Email: test@email.com"
-puts "Password 000000"
-
+puts "Password 00000000 (8 0s)"
+puts "Conan The Barbarian is the admin"
 User.create!(
   email: "test@email.com",
   password: '00000000',
