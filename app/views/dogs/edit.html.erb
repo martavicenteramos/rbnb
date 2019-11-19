@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col" id="edit">
+      <%= simple_form_for @dog do |f| %>
+      <%= f.input :name%>
+      <%= f.input :description%>
+      <%= f.input :size,  collection: [ "Small", "Medium", "Large"]%>
+      <%= f.input :breed%>
+      <%= f.input :gender, collection: [ "Male", "Female"]%>
+      <%= f.input :location%>
+      <%= f.button :submit, "Update", class:"btn btn-primary" %>
+      <% end %>
+    </div>
+
+
+    <div class="col">
+      <%= link_to 'Go back', user_path, class: 'btn btn-primary mt-1'%>
+    </div>
+  </div>
+</div>
+
+
