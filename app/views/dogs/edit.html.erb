@@ -11,7 +11,13 @@
       <%= f.button :submit, "Update", class:"btn btn-primary" %>
       <% end %>
     </div>
-
+    <div class="col">
+      <%= simple_form_for [@dog, @picture] do |f| %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= f.submit 'Upload Photo', class: "btn btn-primary" %>
+      <% end %>
+    </div>
     <div class="col">
       <%= link_to 'Go back', user_path, class: 'btn btn-primary mt-1'%>
     </div>
