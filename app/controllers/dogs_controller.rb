@@ -28,7 +28,9 @@ class DogsController < ApplicationController
 
   def update
     authorize @dog
+
     if @dog.update(dog_params)
+      @dog.save
       render :show
     else
       render :show

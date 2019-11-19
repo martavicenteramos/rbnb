@@ -3,8 +3,9 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(picture_params)
+    @picture.dog_id = params[:dog_id].to_i
+    @picture.save
     authorize @picture
-    @picture.dog = @dog
   end
 
   private
