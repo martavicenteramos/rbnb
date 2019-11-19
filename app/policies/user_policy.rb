@@ -10,11 +10,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    true  # Anyone can view a dog
+    true  # Anyone can see user profile
   end
 
   def create?
-    true  # Anyone can create a dog
+    true  # Anyone can create a  user profile
   end
 
   def update?
