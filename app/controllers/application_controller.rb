@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, exept: [:home, :index, :show]
   include Pundit
 
 
