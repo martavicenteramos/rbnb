@@ -1,6 +1,21 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $rbnb_blue;
+  height: 70px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.navbar-lewagon a {
+  list-style: none;
+  letter-spacing: 6px;
+  display: block;
+  color: $white;
+  padding: 0px 30px;
+}
+
+.nav-item .nav-link {
+  color: $white;
+  padding: 0px 30px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +24,14 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon li {
+  text-align: center;
+  padding: 0px 20px;
+}
+
+.navbar-lewagon ul {
+  display: flex;
+  align-items: center;
 }
