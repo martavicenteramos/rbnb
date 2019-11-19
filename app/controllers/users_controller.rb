@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     authorize @user
+    @dog = Dog.new
   end
 
   def edit
