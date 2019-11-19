@@ -11,4 +11,10 @@ class Dog < ApplicationRecord
   validates :breed, presence: true
   validates :gender, presence: true, inclusion: { in: %w[male female] }
   validates :location, presence: true
+
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
