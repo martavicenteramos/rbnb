@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   resources :dogs do
     resources :bookings
+    resources :pictures, only: [:create, :destroy]
   end
-
+  
   resources :users, only: [:show, :update, :edit]
 end
 

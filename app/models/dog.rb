@@ -6,10 +6,10 @@ class Dog < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :size, presence: true, inclusion: { in: %w[small medium large] }
+  validates :size, presence: true, inclusion: { in: %w[Small Medium Large] }
   validates :age, presence: true
   validates :breed, presence: true
-  validates :gender, presence: true, inclusion: { in: %w[male female] }
+  validates :gender, presence: true, inclusion: { in: %w[Male Female] }
   validates :location, presence: true
 
   def unavailable_dates
