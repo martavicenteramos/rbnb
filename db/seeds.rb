@@ -8,11 +8,11 @@
 require 'faker'
 puts "Deleting all models"
 
-Dog.destroy_all
-User.destroy_all
-Booking.destroy_all
-Picture.destroy_all
-Review.destroy_all
+# Dog.destroy_all
+# User.destroy_all
+# Booking.destroy_all
+# Picture.destroy_all
+# Review.destroy_all
 
 puts "Generating Users"
 puts "Login user"
