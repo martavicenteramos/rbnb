@@ -6,15 +6,19 @@ class DogsController < ApplicationController
   end
 
   def show
+    authorize @dog
   end
 
   def create
+    authorize @dog
   end
 
   def new
+    authorize @dog
   end
 
   def delete
+    authorize @dog
   end
 
   private
