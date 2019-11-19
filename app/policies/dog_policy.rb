@@ -5,6 +5,10 @@ class DogPolicy < ApplicationPolicy
     end
   end
 
+  def index
+    true
+  end
+
   def show?
     true  # Anyone can view a dog
   end
@@ -14,10 +18,10 @@ class DogPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user = user  # Only dog creator can update it
+    record.user == current_user  # Only dog creator can update it
   end
 
   def destroy?
-    record.user = user  # Only dog creator can update it
+    record.user == current_user  # Only dog creator can update it
   end
 end
