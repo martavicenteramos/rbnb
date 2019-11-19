@@ -3,6 +3,6 @@
 
 <% @dogs.each do |dog| %>
 
-  <h2 class="text-center"><%= link_to dog.name, dog_path(cdog) %></h2>
+  <h2 class="text-center"><%= link_to dog.name, dog_path(dog) %></h2>
 <% end %>
 
