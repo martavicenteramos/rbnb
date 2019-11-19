@@ -7,15 +7,16 @@
 
 .navbar-lewagon a {
   list-style: none;
-  letter-spacing: 6px;
+  letter-spacing: 7px;
   display: block;
-  color: $white;
-  padding: 0px 30px;
+  color: $darkgray;
+  padding: 10px 20px;
+  font-size: 16px;
 }
 
 .nav-item .nav-link {
-  color: $white;
   padding: 0px 30px;
+  letter-spacing: 5px;
 }
 
 .navbar-lewagon .navbar-collapse {
