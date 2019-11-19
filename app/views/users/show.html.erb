@@ -1,1 +1,24 @@
-<h1>TEST</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1> Hello <%= @user.first_name %> <%= @user.last_name %> </h1>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+   <div class="row">
+    <div class="col">
+      <h3> <strong>Profile:</strong></h3>
+      <h4> Name: <%= @user.first_name %></h4>
+      <h4> Last name: <%= @user.last_name %></h4>
+      <h4> Email: <%= @user.email %></h4>
+      <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+    </div>
+
+    <div class="col">
+      <%= link_to 'Edit details', edit_user_path, class: 'btn btn-primary mt-1'%>
+    </div>
+  </div>
+</div>
+
