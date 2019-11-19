@@ -25,6 +25,7 @@
         <% @user.dogs.each do |dog| %>
         <li>
           <%= link_to dog.name, dog_path(dog) %> - <%= dog.description %>
+          <small><%= link_to 'Edit details', edit_dog_path(dog)%></small>
         </li>
         <%end %>
       </ul>

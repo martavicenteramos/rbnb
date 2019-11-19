@@ -21,6 +21,10 @@ class DogsController < ApplicationController
     authorize @dog
   end
 
+  def edit
+    authorize @dog
+  end
+
   private
 
   def set_dog
