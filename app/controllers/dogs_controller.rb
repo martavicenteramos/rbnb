@@ -23,6 +23,18 @@ class DogsController < ApplicationController
 
   def edit
     authorize @dog
+    @picture = Picture.new
+  end
+
+  def update
+    authorize @dog
+
+    if @dog.update(dog_params)
+      @dog.save
+      render :show
+    else
+      render :show
+    end
   end
 
   private
@@ -32,6 +44,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permite(:name, :description, :size, :age, :breed, :gender, :location, :filter)
+    params.require(:dog).permit(:name, :description, :size, :age, :breed, :gender, :location, :filter)
   end
 end
