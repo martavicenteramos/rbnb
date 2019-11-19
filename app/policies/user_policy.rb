@@ -10,11 +10,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    record == user # Anyone can see user profile
+    record == user # Only user can see his profile
   end
 
   def create?
-    true  # Anyone can create a  user profile
+    true # Anyone can create a  user profile
   end
 
   def update?
