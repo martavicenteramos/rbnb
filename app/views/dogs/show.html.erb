@@ -1,4 +1,5 @@
 <p><%= @dog.name %></p>
+<%= link_to "Book me", new_dog_booking_path(@dog) %>
 <% pictures = @dog.pictures %>
 <% pictures.each do |picture| %>
   <%= cl_image_tag picture.photo, height: 300, width: 400, crop: :fill %>

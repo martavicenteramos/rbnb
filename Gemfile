@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem 'datetime_picker_input'
 gem 'devise'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'

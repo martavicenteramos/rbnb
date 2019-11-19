@@ -3,3 +3,5 @@
 //= link_directory ../stylesheets .css
 //= link application.css
 
+//= require datetime_picker_input
+
