@@ -1,24 +1,40 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1549291981-56d443d5e2a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);">
     <div class="filter-form" >
-      <h4>Find for your buddy</h4>
+      <h4>Find for your buddy today!</h4>
       <%= simple_form_for :filter, url: {controller: 'dogs', action: 'index'}, method: :get do |f| %>
         <%= f.input :breed, required: false %>
         <%= f.input :size, as: :select, required: false, collection: %w[small medium large] %>
         <%= f.input :age, as: :select, required: false %>
         <%= f.input :gender, as: :select, required: false, collection: %w[male female] %>
         <%= f.input :location, as: :select, required: false %>
-        <%= f.submit :submit %>
+        <%= f.submit :search, class: "btn btn-outline-primary" %>
       <% end %>
   </div>
 </div>
 
-<div class="container">
-  <% @dogs.each do |dog|%>
-  <%= dog.name %>
-  <%= dog.location %>
-  <%= dog.size %>
-  <%= dog.age %>
-  <% end %>
+<div class="product-highlight-homepage-container">
+<div class="product-highlight-homepage">
+    <h3>New Releases</h3>
+  <div class="cards">
+    <% @dogs.sample(3).each do |dog|%>
+    <div class="card-trip">
+      <%= link_to dog_path(dog) do %>
+        <%= image_tag 'https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80' %>
+        <% end  %>
+      <div class="card-trip-infos">
+        <div>
+            <h2><%= dog.name %></h2>
+            <p><%= dog.location %></p>
+          <div class="d-flex justify-content-between">
+            <h6><i class="fas fa-arrows-alt-v"></i><i class="fas fa-dog"></i> S </h6>
+            <h6> <%= dog.age %><small>y/o</small></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
 </div>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -42,3 +58,5 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<%= render 'components/footer-oficial' %>
