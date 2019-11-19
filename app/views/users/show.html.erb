@@ -19,6 +19,17 @@
     <div class="col">
       <%= link_to 'Edit details', edit_user_path, class: 'btn btn-primary mt-1'%>
     </div>
+
+    <div class="col">
+      <ol>
+        <% @user.dogs.each do |dog| %>
+        <li>
+          <%= dog.name %> - <%= dog.description %>
+        </li>
+        <%end %>
+      </ul>
+    </div>
   </div>
 </div>
+
 
