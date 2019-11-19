@@ -18,10 +18,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == current_user  # Only dog creator can update it
+    record == user  # Only dog creator can update it
   end
 
   def destroy?
-    record.user == current_user  # Only dog creator can update it
+    record == user  # Only dog creator can update it
   end
 end
