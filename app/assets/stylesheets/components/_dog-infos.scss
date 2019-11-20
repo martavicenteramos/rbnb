@@ -1,3 +1,105 @@
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.imgprofile {
+  max-width: 350px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 10px;
+  flex-direction: row
+  flex
+}
+
+.calendar {
+  width: 300px;
+}
+
+.doginfo h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: $rbnb_blue;
+  letter-spacing: 4px;
+}
+
+.doginfo h4 {
+  font-size: 16px;
+  color: $gray;
+  letter-spacing: 4px;
+}
+
+.doginfo {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.7);
+  justify-content: space-around;
+  padding: 25px;
+}
+
+.doginfo span {
+  text-align: center;
+}
+
+.btn-blue {
+  color: $white;
+  background-color: $rbnb_blue;
+  padding: 10px 18px;
+  border-radius: 7px;
+  font-weight: bold;
+  opacity: 1;
+  font-size: 16px;
+  letter-spacing: 4px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.btn-medium:hover {
+  opacity: 1;
+  border: 1px solid #999999;
+  text-decoration: none;
+  color: #999999;
+}
+
+.textprofile h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: $rbnb_blue;
+  letter-spacing: 4px;
+}
+
+.w3-display-container img {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  max-width: 100%;
+  max-height: 300px;
+}
+
+
 @import url('https://fonts.googleapis.com/css?family=Pontano+Sans');
 
 $white: #fff;
