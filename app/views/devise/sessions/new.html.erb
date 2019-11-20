@@ -1,7 +1,7 @@
-<h2>Please login in</h2>
+<h2 class="maintitle"> Please login in</h2>
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col generic-form">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <% if alert %>
       <div id="notice_wrapper">
@@ -24,7 +24,7 @@
     </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in", class: "btn btn-lg btn-primary" %>
+    <%= f.button :submit, "Log in", class: "btn-generic" %>
   </div>
   <% end %>
 
