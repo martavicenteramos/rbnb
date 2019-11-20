@@ -1,15 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $lightgray;
+  background: rgb(237, 237, 237);
   height: 70px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  color: #595757;
 }
 
 .navbar-lewagon a {
   list-style: none;
-  letter-spacing: 7px;
+  letter-spacing: 6px;
   display: block;
-  color: $darkgray;
+  color: #595757;
+  font-weight: 500;
   padding: 10px 20px;
   font-size: 16px;
 }
@@ -17,6 +19,7 @@
 .nav-item .nav-link {
   padding: 0px 30px;
   letter-spacing: 5px;
+  color: #595757;
 }
 
 .navbar-lewagon .navbar-collapse {

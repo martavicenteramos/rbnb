@@ -1,7 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :set_dog
+  before_action :set_dog, only: [:new, :create]
+  before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
+    @bookings = policy_scope(Booking).order(start_date: :asc)
   end
 
   def new
@@ -22,6 +24,27 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @booking
+    @dog = @booking.dog
+  end
+
+  def update
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    authorize @booking
+    @booking.destroy
+
+    redirect_to bookings_path, notice: 'Booking was successfully deleted.'
+  end
+
   def availability
     @booking = Booking.where(["dog_id =?", @dog.id])
     date_ranges = bookings.map { |b| b.start_date..b.end_date }
@@ -39,5 +62,9 @@ class BookingsController < ApplicationController
 
   def set_dog
     @dog = Dog.find(params[:dog_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
