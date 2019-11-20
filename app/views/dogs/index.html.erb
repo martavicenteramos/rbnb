@@ -7,7 +7,7 @@
       <% if dog.pictures.first.nil? %>
         <%= image_tag 'dog-face.png' %>
         <% else %>
-        <%= cl_image_tag dog.pictures.first, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag dog.pictures.first.photo, height: 300, width: 400, crop: :fill %>
         <% end  %>
       <% end  %>
       <div class="card-trip-infos">
