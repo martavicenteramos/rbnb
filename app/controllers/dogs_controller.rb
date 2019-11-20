@@ -28,8 +28,11 @@ class DogsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     authorize @dog
+    if @dog.destroy
+     redirect_to user_path(current_user)
+    end
   end
 
   def edit
