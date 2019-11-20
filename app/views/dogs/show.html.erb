@@ -1,6 +1,45 @@
-<p><%= @dog.name %></p>
-<%= link_to "Book me", new_dog_booking_path(@dog) %>
-<% pictures = @dog.pictures %>
-<% pictures.each do |picture| %>
-  <%= cl_image_tag picture.photo, height: 300, width: 400, crop: :fill %>
+<% if @dog.pictures.length == 1 %>
+    <div class="banner-showpage" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= cl_image_path @dog.pictures.first.photo %>);"></div>
+<% elsif @dog.pictures.length == 2 %>
+    <div class="row">
+      <div class="col banner-showpage" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= cl_image_path @dog.pictures.first.photo %>);"></div>
+      <div class="col banner-showpage" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= cl_image_path @dog.pictures.second.photo %>);"></div>
+    </div>
+<% elsif @dog.pictures.length == 3 %>
+  <section class="showpage">
+    <div class="item item-a" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= cl_image_path @dog.pictures.first.photo %>);"></div>
+    <div class="item item-b" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= cl_image_path @dog.pictures.second.photo %>);"></div>
+    <div class="item item-c" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= cl_image_path @dog.pictures[2].photo %>);"></div>
+  </section>
 <% end %>
+
+<div class="doginfo">
+  <span>
+    <h3>SIZE:</h3>
+    <h4>Small</h4>
+  </span>
+    <span>
+    <h3>AGE:</h3>
+    <h4>7 y/o</h4>
+  </span>
+  <span>
+    <h3>BREED:</h3>
+    <h4>Beagle</h4>
+  </span>
+  <span>
+    <h3>GENDER:</h3>
+    <h4>Male</h4>
+  </span>
+</div>
+
+
+<div class="container my-custom-container">
+  <div class="row">
+    <div class="col-md textprofile">
+      <h3>Hello, I'm <%= @dog.name %></h3>
+      <h3> DESCRIPTION: </h3>
+      <h3> MY OWNER </h3>
+    </div>
+  </div>
+  <%= link_to "Book me", new_dog_booking_path(@dog), class:"btn-generic" %>
+</div>
