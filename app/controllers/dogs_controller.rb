@@ -1,6 +1,7 @@
 class DogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show]
 
 
   def index
@@ -14,6 +15,7 @@ class DogsController < ApplicationController
   def new
     @dog = Dog.new
     authorize @dog
+    authorize @booking
   end
 
   def create
@@ -31,7 +33,7 @@ class DogsController < ApplicationController
   def destroy
     authorize @dog
     if @dog.destroy
-     redirect_to user_path(current_user)
+      redirect_to user_path(current_user)
     end
   end
 
@@ -59,5 +61,9 @@ class DogsController < ApplicationController
 
   def dog_params
     params.require(:dog).permit(:name, :description, :size, :age, :breed, :gender, :location, :filter)
+  end
+
+  def set_booking
+    @booking = Booking.new
   end
 end
