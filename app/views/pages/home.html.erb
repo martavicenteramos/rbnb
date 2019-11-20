@@ -1,13 +1,13 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1549291981-56d443d5e2a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);">
     <div class="filter-form" >
-      <h4>Find for your buddy today!</h4>
+      <h4 >Find for your buddy today!</h4>
       <%= simple_form_for :filter, url: {controller: 'dogs', action: 'index'}, method: :get do |f| %>
         <%= f.input :breed, required: false %>
         <%= f.input :size, as: :select, required: false, collection: %w[small medium large] %>
         <%= f.input :age, as: :select, required: false %>
         <%= f.input :gender, as: :select, required: false, collection: %w[male female] %>
         <%= f.input :location, as: :select, required: false %>
-        <%= f.submit :search, class: "btn btn-outline-primary" %>
+        <%= f.submit :SEARCH, class: "btn-form" %>
       <% end %>
   </div>
 </div>
