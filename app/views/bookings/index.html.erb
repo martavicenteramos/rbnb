@@ -1,3 +1,4 @@
+<%= notice %>
 <div class="container">
   <% if @bookings.length == 0 %>
     <h2 class="mt-5">You have no bookings, get yourself some!</h2>
@@ -6,6 +7,7 @@
     <h2 class="mt-5">Here are your bookings: </h2>
     <% @bookings.each do |booking| %>
     <% if booking.dog.pictures.empty? %>
+    <div class= "d-flex align-items-center">
       <div class="card-product">
         <%= image_tag "dog-face.png" %>
         <div class="card-product-infos">
@@ -15,6 +17,7 @@
         </div>
       </div>
     <% else %>
+    <div class= "d-flex align-items-center">
       <div class="card-product">
         <%= cl_image_tag booking.dog.pictures.first.photo %>
         <div class="card-product-infos">
@@ -24,6 +27,17 @@
         </div>
       </div>
     <% end %>
+      <div class="ml-5 align-items-center">
+        <% if booking.status == "pending" %>
+          <%= link_to edit_booking_path(booking) do %>
+            <i class="fas fa-pencil-alt m-5"></i>
+          <% end %>
+          <i class="far fa-trash-alt"></i>
+        <% else %>
+          <i class="far fa-check-circle m-5"></i>
+        <% end %>
+      </div>
+    </div>
     <% end %>
   <% end %>
 </div>
