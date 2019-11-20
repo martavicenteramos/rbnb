@@ -19,8 +19,12 @@
     <% @dogs.sample(3).each do |dog|%>
     <div class="card-trip">
       <%= link_to dog_path(dog) do %>
-        <%= image_tag 'https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80' %>
+        <% if dog.pictures.first.nil? %>
+          <%= image_tag 'dog-face.png' %>
+        <% else %>
+          <%= cl_image_tag dog.pictures.first.photo, height: 300, width: 400, crop: :fill %>
         <% end  %>
+      <% end  %>
       <div class="card-trip-infos">
         <div>
             <h2><%= dog.name %></h2>
