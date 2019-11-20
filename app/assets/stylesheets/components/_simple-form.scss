@@ -1,7 +1,47 @@
 .filter-form {
-  background-color: white;
-  border-radius: 4px;
-  padding: 10px;
-  width: 30%;
-  margin-left: 30px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  padding: 15px;
+  width: 26%;
+  margin-left: 45px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: absolute;
+  top: 160px;
+}
+
+.filter-form h4 {
+  font-weight: bold;
+  color: $rbnb_blue;
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  letter-spacing: 6px;
+  line-height: 28px;
+  padding: 0px 5px;
+}
+
+.filter-form btn {
+  letter-spacing: 5px;
+}
+
+.btn-form {
+  color: $rbnb_blue;
+  background-color: transparent;
+  padding: 10px 18px;
+  border-color: $rbnb_blue;
+  border-width: 1px;
+  border-radius: 7px;
+  opacity: 1;
+  font-size: 16px;
+  letter-spacing: 4px;
+  align-items: center;
+  margin-left: 115px;
+}
+.btn-form:hover {
+  opacity: 1;
+  background-color: $rbnb_blue;
+  color: $white;
+  border: 1px solid #999999;
+  text-decoration: none;
 }

@@ -1,10 +1,10 @@
 .footer {
-  background: #F0F0F0;
+  background: $lightgray;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 500px;
-  padding: 0px 35px;
+  height: 300px;
+  padding: 65px;
 }
 .footer-links {
   display: flex;
@@ -13,7 +13,7 @@
   padding: 0px 20px;
 }
 .footer-links a {
-  color: black;
+  color: $rbnb_blue;
   opacity: 0.15;
   text-decoration: none;
   font-size: 30px;
@@ -28,9 +28,8 @@
   font-size: 16px;
   line-height: 19px;
   text-align: left;
-  letter-spacing: 20%;
   font-family: "Open Sans";
-  letter-spacing: 6px;
+  letter-spacing: 5px;
   opacity: 0.8;
   line-height: 30px;
 }
@@ -40,5 +39,10 @@
 }
 
 .footer img {
-  justify-content: center;
+  width: 200px;
+}
+
+.footer .blue {
+  color: $rbnb_blue;
+  font-weight: bold;
 }
