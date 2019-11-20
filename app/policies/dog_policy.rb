@@ -18,7 +18,7 @@ class DogPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == current_user  # Only dog creator can update it
+    record.user == user  # Only dog creator can update it
   end
 
   def destroy?
