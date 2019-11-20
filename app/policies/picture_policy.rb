@@ -14,7 +14,7 @@ class PicturePolicy < ApplicationPolicy
   end
 
   def create?
-    record == user # Anyone can create a picture
+    @user.dog_ids.include?(record.dog_id) # Anyone can create a picture
   end
 
   def update?

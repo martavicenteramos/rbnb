@@ -21,11 +21,16 @@
     </div>
 
     <div class="col">
+      <%= link_to 'Add a dog', new_dog_path, class: 'btn btn-primary mt-1'%>
+    </div>
+
+    <div class="col">
       <ol>
         <% @user.dogs.each do |dog| %>
         <li>
           <%= link_to dog.name, dog_path(dog) %> - <%= dog.description %>
           <small><%= link_to 'Edit details', edit_dog_path(dog)%></small>
+
         </li>
         <%end %>
       </ul>

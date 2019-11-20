@@ -1,5 +1,7 @@
 class DogsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @dogs = policy_scope(Dog).order(created_at: :desc)
@@ -9,12 +11,21 @@ class DogsController < ApplicationController
     authorize @dog
   end
 
-  def create
+  def new
+    @dog = Dog.new
     authorize @dog
   end
 
-  def new
+  def create
+    @dog = Dog.new(dog_params)
+    @picture = Picture.new
+    @dog.user = current_user
     authorize @dog
+    if @dog.save
+      render :edit
+    else
+      render :new
+    end
   end
 
   def delete

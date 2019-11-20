@@ -18,6 +18,22 @@
       <%= f.submit 'Upload Photo', class: "btn btn-primary" %>
       <% end %>
     </div>
+
+      <div class="container">
+        <div class="row">
+        <% pictures = @dog.pictures %>
+        <% pictures.each do |picture| %>
+
+          <div class="col">
+            <%= cl_image_tag picture.photo, height: 300, width: 400, crop: :fill %>
+            <small><%= link_to 'Delete Photo', dog_picture_path(@dog, picture), method: :delete ,class: "btn btn-danger", data: {confirm: "Are you sure?"}%></small>
+          </div>
+        <% end %>
+        </div>
+      </div>
+
+
+
     <div class="col">
       <%= link_to 'Go back', user_path(@dog.user_id), class: 'btn btn-primary mt-1'%>
     </div>
