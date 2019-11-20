@@ -48,10 +48,10 @@ puts "With no photos"
    name:Faker::FunnyName.name,
    user: User.all.sample,
    description:Faker::Creature::Dog.meme_phrase,
-   size: %w[small medium large].sample,
+   size: %w[Small Medium Large].sample,
    age: rand(0..15),
    breed: Faker::Creature::Dog.breed,
-   gender: %w[male female].sample,
+   gender: %w[Male Female].sample,
    location: Faker::Address.full_address
    )
 end
