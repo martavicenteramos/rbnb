@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
-  before_action :set_dog
+  before_action :set_dog, only: [:new, :create]
 
   def index
+    @bookings = policy_scope(Booking).order(start_date: :asc)
   end
 
   def new
