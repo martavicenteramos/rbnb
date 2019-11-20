@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_dog, only: [:new, :create]
-  before_action :set_booking, only: [:edit, :update]
+  before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
     @bookings = policy_scope(Booking).order(start_date: :asc)
@@ -36,6 +36,13 @@ class BookingsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    authorize @booking
+    @booking.destroy
+
+    redirect_to bookings_path, notice: 'Booking was successfully deleted.'
   end
 
   def availability
