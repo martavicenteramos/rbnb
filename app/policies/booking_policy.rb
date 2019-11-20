@@ -5,11 +5,15 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def new?
-    true # Anyone can create a dog
+    true # Anyone can create a booking
   end
 
   def create?
-    true # Anyone can create a dog
+    true # Anyone can create a booking
   end
 end
