@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :update, :edit]
-  resources :bookings,  only: [:index, :update, :edit]
+  resources :bookings,  only: [:index, :update, :edit, :destroy]
 end
 
 
