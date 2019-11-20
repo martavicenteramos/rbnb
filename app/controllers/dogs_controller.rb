@@ -11,12 +11,21 @@ class DogsController < ApplicationController
     authorize @dog
   end
 
-  def create
+  def new
+    @dog = Dog.new
     authorize @dog
   end
 
-  def new
+  def create
+    @dog = Dog.new(dog_params)
+    @picture = Picture.new
+    @dog.user = current_user
     authorize @dog
+    if @dog.save
+      render :edit
+    else
+      render :new
+    end
   end
 
   def delete

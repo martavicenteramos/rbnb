@@ -4,8 +4,20 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     @picture.dog_id = params[:dog_id].to_i
-    @picture.save
     authorize @picture
+    if @picture.save
+      redirect_to edit_dog_path(@dog)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+    authorize @dog
+    if @picture.destroy
+      redirect_to edit_dog_path(@dog)
+    end
   end
 
   private
