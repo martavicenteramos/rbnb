@@ -1,21 +1,7 @@
 class ApplicationController < ActionController::Base
-
-  protected
-
-  def after_sign_in_path_for(resource)
-    # return the path based on resource
-    user_path(current_user.id)
-  end
-
-  def after_sign_out_path_for(resource)
-    # return the path based on resource
-    request.referrer
-  end
-
-
   before_action :authenticate_user!, exept: [:home, :index, :show]
+  before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
-
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -27,6 +13,23 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     flash[:notice] = "You are not authorized to perform this action."
     redirect_to(root_path)
+  end
+
+  def after_sign_in_path_for(resource)
+    # return the path based on resource
+    user_path(current_user.id)
+  end
+
+  def after_sign_out_path_for(resource)
+    # return the path based on resource
+    request.referrer
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name photo photo_cache])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name photo photo_cache])
   end
 
   private
