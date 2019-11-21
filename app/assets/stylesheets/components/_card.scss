@@ -2,12 +2,14 @@
   overflow: hidden;
   background: #F4F4F4;
   max-width: 335px;
+
 }
 
 .card-trip img {
   height: 400px;
   width: 100%;
   object-fit: cover;
+
   &:hover {
     opacity: 0.5;
   }
@@ -16,15 +18,31 @@
 .card-trip h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  font-family: "Open Sans";
+  text-align: left;
+  text-transform: uppercase;
+  color: $darkgray;
+  letter-spacing: 4px;
+  margin: 0px;
+}
+
+.dogs-bar h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  color: $darkgray;
+  letter-spacing: 4px;
+  margin: 0px;
 }
 
 .card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+  font-size: 14px;
+  color: $darkgray;
+  opacity: .9;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
 }
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -32,6 +50,10 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  line-height: 35px;
+  border-color: $lightgray;
+  border-width: 1px;
+  box-shadow: 0 10px 10px -5px rgba(0,0,0,0.1);
 }
 
 .card-trip-infos .card-trip-user {
@@ -74,8 +96,29 @@
   margin-top: 8px;
 }
 
+.spacing {
+  margin-left: 5px;
+}
+
+.bluee {
+  color: $rbnb_blue;
+}
+
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.grayy {
+  color: $darkgray;
+  font-weight: bold;
+}
+
+.shadow-card {
+  box-shadow: 0 10px 10px -5px rgba(0,0,0,0.1);
+}
+
+.yelloww {
+  color: #FEC106;
 }
 
 // Smallest device

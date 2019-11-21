@@ -1,0 +1,21 @@
+<div class="card-trip">
+  <%= link_to dog_path(dog) do %>
+  <% if dog.pictures.first.nil? %>
+    <%= image_tag 'dog-face.png' %>
+    <% else %>
+    <%= cl_image_tag dog.pictures.first.photo, height: 300, width: 400, crop: :fill %>
+    <% end  %>
+  <% end  %>
+  <div class="card-trip-infos">
+    <div class="w-100">
+        <h2><%= dog.name %></h2>
+        <p><%= dog.city.capitalize()%></p>
+      <div class="d-flex justify-content-between">
+        <h6 class="grayy"><i class="fas fa-arrows-alt-v bluee"></i>&nbsp<i class="fas fa-dog"></i>&nbsp<strong><%= dog.size.first.upcase%></strong></h6>
+        <h6 class="grayy"><i class="fas fa-star yelloww"></i>&nbsp 4.6 </h6>
+        <h6 class="grayy"> <%= dog.age %>&nbsp<small>y/o</small></h6>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

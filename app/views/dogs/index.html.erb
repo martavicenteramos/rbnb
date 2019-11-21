@@ -25,10 +25,11 @@
           <div class="card-trip-infos">
             <div class="w-100">
                 <h2><%= dog.name %></h2>
-                <p><%= dog.city.capitalize() %></p>
+                <p><%= dog.city.capitalize()%></p>
               <div class="d-flex justify-content-between">
-                <h6><i class="fas fa-arrows-alt-v"></i><i class="fas fa-dog"></i> <%= dog.size.first.upcase %> </h6>
-                <h6> <%= dog.age %><small>y/o</small></h6>
+                <h6 class="grayy"><i class="fas fa-arrows-alt-v bluee"></i>&nbsp<i class="fas fa-dog"></i>&nbsp<strong><%= dog.size.first.upcase%></strong></h6>
+                <h6 class="grayy"><i class="fas fa-star yelloww"></i>&nbsp 4.6 </h6>
+                <h6 class="grayy"> <%= dog.age %>&nbsp<small>y/o</small></h6>
               </div>
             </div>
           </div>
