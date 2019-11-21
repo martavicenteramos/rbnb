@@ -1,9 +1,0 @@
-<p class = "widget-content" data-id="<%= @dog.unavailable_dates.to_json %>"></p>
-
-<div class="container">
-  <%= simple_form_for [@dog, @booking]  do |f| %>
-    <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
-    <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
-    <%= f.submit :submit %>
-  <% end %>
-</div>

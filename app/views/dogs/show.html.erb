@@ -16,30 +16,45 @@
 <div class="doginfo">
   <span>
     <h3>SIZE:</h3>
-    <h4>Small</h4>
+    <h4><%= @dog.size %></h4>
   </span>
     <span>
     <h3>AGE:</h3>
-    <h4>7 y/o</h4>
+    <h4><%= @dog.age %></h4>
   </span>
   <span>
     <h3>BREED:</h3>
-    <h4>Beagle</h4>
+    <h4><%= @dog.breed %></h4>
   </span>
   <span>
     <h3>GENDER:</h3>
-    <h4>Male</h4>
+    <h4><%= @dog.gender %></h4>
   </span>
 </div>
 
 
-<div class="container my-custom-container">
-  <div class="row">
-    <div class="col-md textprofile">
-      <h3>Hello, I'm <%= @dog.name %></h3>
-      <h3> DESCRIPTION: </h3>
-      <h3> MY OWNER </h3>
+<div class="container form-show-page">
+  <div class="d-flex justify-content-between">
+    <div class="flex-grow-1">
+      <div class="row">
+        <div class="col-md textprofile mt-5">
+          <h4>Hello, I'm <%= @dog.name %></h4>
+          <p><%= @dog.location %></p>
+          <div class="border-top border-bottom mb-4">
+            <p class="mt-2"><%= @dog.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="calendar border px-4 py-2 m-5">
+      <p class = "widget-content" data-id="<%= @dog.unavailable_dates.to_json %>"></p>
+      <h4>Book <%= @dog.name.split.first %>:</h4>
+      <%= simple_form_for [@dog, @booking]  do |f| %>
+        <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+        <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+        <%= f.submit :book, class:"btn-generic w-100" %>
+      <% end %>
     </div>
   </div>
-  <%= link_to "Book me", new_dog_booking_path(@dog), class:"btn-generic" %>
 </div>
+

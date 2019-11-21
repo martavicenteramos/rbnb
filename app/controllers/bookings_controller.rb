@@ -18,9 +18,9 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'Booking was successfully created.'
     else
-      render :new
+      render 'dogs/show'
     end
   end
 
