@@ -1,9 +1,13 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgb(237, 237, 237);
+  background-color: rgb(237, 237, 237);
   height: 70px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: #595757;
+  top: 0;
+  position: sticky;
+  z-index:2;
+  color: $mediumgray;
 }
 
 .navbar-lewagon a {
@@ -19,7 +23,7 @@
 .nav-item .nav-link {
   padding: 0px 30px;
   letter-spacing: 5px;
-  color: #595757;
+  color: $mediumgray;
 }
 
 .navbar-lewagon .navbar-collapse {
