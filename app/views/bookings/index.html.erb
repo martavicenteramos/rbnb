@@ -83,5 +83,19 @@
         </div>
       </div>
     </div>
+    <% if booking.review.nil? %>
+    <div class="row">
+      <div class="col mt-2">
+        <h2>You havent written the review! Write one!</h2>
+        <%= simple_form_for [booking, Review.new] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :description %>
+        <%= f.button :submit, class:"btn btn-primary" %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
   <% end %>
 </div>
+
+

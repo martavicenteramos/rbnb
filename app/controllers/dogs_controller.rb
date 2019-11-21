@@ -4,19 +4,24 @@ class DogsController < ApplicationController
   before_action :set_booking, only: [:show]
 
   def index
-    filter = params["filter"]
-    @dogs = policy_scope(Dog).order(created_at: :desc) if filter.values.join == ""
+    @filter = params["filter"]
+    @dogs = policy_scope(Dog).order(created_at: :desc) if @filter.values.join == ""
     @dogs = policy_scope(Dog)
-    @dogs = @dogs.where('breed ILIKE ?', "%#{filter['breed']}%") if filter["breed"].present?
-    @dogs = @dogs.where('size = ?', filter["size"]) if filter["size"].present?
-    @dogs = @dogs.where('age = ?', filter["age"]) if filter["age"].present?
-    @dogs = @dogs.where('gender = ?', filter["gender"]) if filter["gender"].present?
+    @dogs = @dogs.where('breed ILIKE ?', "%#{@filter['breed']}%") if @filter["breed"].present?
+    @dogs = @dogs.where('size = ?', @filter["size"]) if @filter["size"].present?
+    @dogs = @dogs.where('age = ?', @filter["age"]) if @filter["age"].present?
+    @dogs = @dogs.where('gender = ?', @filter["gender"]) if @filter["gender"].present?
+
+    @dogs = @dogs.search(params[:search])
+
     @length = @dogs.length
     @dogs = policy_scope(Dog).order(created_at: :desc) if @dogs.length.zero?
+    all_location
   end
 
   def show
     authorize @dog
+    single_location(@dog)
   end
 
   def new
@@ -72,5 +77,26 @@ class DogsController < ApplicationController
 
   def set_booking
     @booking = Booking.new
+  end
+
+  def all_location
+    @dog_loc = Dog.geocoded
+
+    @markers = @dog_loc.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude
+      }
+    end
+  end
+
+  def single_location(dog)
+    @dog = Dog.geocoded.where(id: dog.id).first
+
+    @markers =
+      {
+        lat: @dog.latitude,
+        lng: @dog.longitude
+      }
   end
 end

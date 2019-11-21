@@ -14,9 +14,27 @@ class Dog < ApplicationRecord
   validates :city, presence: true
   validates :zip_code, presence: true
 
+  geocoded_by :city
+  after_validation :geocode, if: :will_save_change_to_city?
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attributes :name, :description
+  end
+
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }
     end
+  end
+
+  def average_rating
+    sum = 0
+    reviews.each do |review|
+      sum += review.rating
+    end
+
+    sum.to_f / reviews.length
   end
 end
