@@ -1,0 +1,21 @@
+.brands-bar {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: row;
+  height: 120px;
+  background-color: $white;
+  padding: 10px 45px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 10px rgba(0,0,0,0.07);
+}
+
+.quadro {
+  opacity: .9;
+}
+
+.quadro:hover{
+  opacity: .5;
+}
+

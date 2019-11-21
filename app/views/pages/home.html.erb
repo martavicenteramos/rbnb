@@ -14,7 +14,7 @@
 
 <div class="product-highlight-homepage-container">
 <div class="product-highlight-homepage">
-    <h3>New Releases</h3>
+    <h3 class="secondtitle">New Releases</h3>
   <div class="cards">
     <% @dogs.sample(3).each do |dog|%>
     <div class="card-trip">
@@ -40,6 +40,8 @@
   </div>
 </div>
 </div>
+
+<%= render 'components/brands-bar' %>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
