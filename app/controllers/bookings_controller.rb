@@ -15,8 +15,6 @@ class BookingsController < ApplicationController
     # end
     dog_ids = current_user.dog_ids
     @my_dogs_bookings = policy_scope(Booking).where(dog_id: dog_ids)
-
-
   end
 
   def new
@@ -31,7 +29,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      redirect_to root_path, notice: 'Booking was successfully created.'
+      redirect_to bookings_path, notice: 'Booking was successfully created.'
     else
       render 'dogs/show'
     end

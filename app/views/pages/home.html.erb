@@ -6,7 +6,7 @@
         <%= f.input :size, as: :select, required: false, collection: %w[Small Medium Large] %>
         <%= f.input :age, required: false %>
         <%= f.input :gender, as: :select, required: false, collection: %w[Male Female] %>
-        <%= f.input :location, required: false %>
+        <%= f.input :city, required: false %>
         <%= f.submit :SEARCH, class: "btn-form" %>
       <% end %>
   </div>
@@ -26,7 +26,7 @@
         <% end  %>
       <% end  %>
       <div class="card-trip-infos">
-        <div>
+        <div class="w-100">
             <h2><%= dog.name %></h2>
             <p><%= dog.city %></p>
           <div class="d-flex justify-content-between">

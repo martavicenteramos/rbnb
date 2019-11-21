@@ -7,9 +7,9 @@
     <% if @filter.values.join != "" %>
       <% filters = @filter.delete_if {|k,v| v == ""} %>
       <% filters.values.each do |param| %>
-      <div class="mt-3 btn-generic">
+      <btn class="btn btn-outline-secondary">
         <i class="fas fa-filter"><%= param %></i>
-        </div>
+        </btn>
       <% end %>
     <% end %>
       <div class="cards">
@@ -23,9 +23,9 @@
             <% end  %>
           <% end  %>
           <div class="card-trip-infos">
-            <div>
+            <div class="w-100">
                 <h2><%= dog.name %></h2>
-                <p><%= dog.location %></p>
+                <p><%= dog.city.capitalize() %></p>
               <div class="d-flex justify-content-between">
                 <h6><i class="fas fa-arrows-alt-v"></i><i class="fas fa-dog"></i> <%= dog.size.first.upcase %> </h6>
                 <h6> <%= dog.age %><small>y/o</small></h6>
