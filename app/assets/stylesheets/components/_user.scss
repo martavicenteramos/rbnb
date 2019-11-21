@@ -1,0 +1,138 @@
+
+.img-profile {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  height: 100px;
+}
+
+.user-info {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 7px;
+  border-color: $darkgray;
+  border-width: thin;
+  padding: 20px;
+}
+
+.btn-user {
+  background-color: $rbnb_blue;
+  color: $white;
+  padding: 7px 12px;
+  border-radius: 7px;
+  opacity: 1;
+  font-size: 12px;
+  letter-spacing: 4px;
+  align: middle;
+  text-transform: uppercase
+}
+
+.btn-user:hover {
+  text-decoration: none;
+  opacity: .4;
+}
+
+.btn-cinza {
+  background-color: $mediumgray;
+  color: $white;
+  padding: 7px 12px;
+  border-radius: 7px;
+  opacity: 1;
+  font-size: 12px;
+  letter-spacing: 4px;
+  align: middle;
+  text-transform: uppercase
+}
+
+.btn-cinza:hover {
+  text-decoration: none;
+  opacity: .4;
+}
+
+.dogs-bar {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.3);
+  justify-content: space-around;
+  padding: 35px;
+  align-items: center;
+  border-color: $lightgray;
+  border-style: dotted;
+  border-width: 0px 0px 0.5px 0px;
+}
+
+.dogs-bar a {
+  font-size: 14px;
+}
+
+.dogs-bar h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  color: $darkgray;
+  letter-spacing: 4px;
+  margin: 0px;
+}
+
+.dogs-bar h4 {
+  font-size: 16px;
+  color: $darkgray;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.dogs-bar span {
+  text-align: center;
+}
+
+.cinza-leve {
+  background-color: $mediumgray;
+  opacity: 0.5;
+}
+
+.dangerous {
+  background-color: transparent;
+  border-color: $alert;
+  border-width: 1px;
+  color: $alert;
+}
+
+
+.btn-cinza-clean {
+  color: #595757;
+  background-color: transparent;
+  opacity: 1;
+  font-size: 16px;
+  letter-spacing: 4px;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.btn-cinza-clean:hover {
+  opacity: .8;
+  text-decoration: none;
+}
+
+.owndogs li::before {
+  font-size: 20px;
+  font-weight: 700;
+  color: $rbnb_blue;
+  letter-spacing: 4px;
+  margin: 0px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.dog-pic {
+  height: 80px;
+}
+
+.centered {
+  align: center;
+}
+
+.avatar-dog {
+  width: 90px;
+  border-radius: 0px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 3px solid;
+}
