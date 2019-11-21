@@ -11,6 +11,7 @@ class DogsController < ApplicationController
     @dogs = @dogs.where('size = ?', @filter["size"]) if @filter["size"].present?
     @dogs = @dogs.where('age = ?', @filter["age"]) if @filter["age"].present?
     @dogs = @dogs.where('gender = ?', @filter["gender"]) if @filter["gender"].present?
+    @dogs = @dogs.near(@filter["city"], 10) if @filter["city"].present?
 
     @dogs = @dogs.search(params[:search])
 
