@@ -9,6 +9,17 @@
   align-items: center;
 }
 
+.maintitle {
+  text-align: center;
+  margin: 40px 0px;
+  // align: middle;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: $rbnb_blue;
+  font-weight: bold;
+  font-size: 22px;
+}
+
 .generic-bar h3 {
   text-align: center;
   text-transform: uppercase;
