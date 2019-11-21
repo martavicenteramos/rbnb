@@ -6,7 +6,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    record.user == user
   end
 
   def new?
@@ -18,10 +18,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    @record.dog.user_id == user.id
   end
 
   def destroy?
-    record.user == user
+    false
   end
 end
