@@ -4,6 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 
 import { initMapbox } from '../components/init_mapbox';
 
+toggleDateInputs();
 initMapbox();
 
-toggleDateInputs();
+
