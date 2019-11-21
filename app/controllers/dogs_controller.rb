@@ -4,7 +4,15 @@ class DogsController < ApplicationController
   before_action :set_booking, only: [:show]
 
   def index
-    @dogs = policy_scope(Dog).order(created_at: :desc)
+    filter = params["filter"]
+    @dogs = policy_scope(Dog).order(created_at: :desc) if filter.values.join == ""
+    @dogs = policy_scope(Dog)
+    @dogs = @dogs.where('breed ILIKE ?', "%#{filter['breed']}%") if filter["breed"].present?
+    @dogs = @dogs.where('size = ?', filter["size"]) if filter["size"].present?
+    @dogs = @dogs.where('age = ?', filter["age"]) if filter["age"].present?
+    @dogs = @dogs.where('gender = ?', filter["gender"]) if filter["gender"].present?
+    @length = @dogs.length
+    @dogs = policy_scope(Dog).order(created_at: :desc) if @dogs.length.zero?
   end
 
   def show
