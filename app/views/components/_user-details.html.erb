@@ -1,0 +1,22 @@
+<div class="blue-bar">
+  <h3> Hello, <%= @user.first_name %> <%= @user.last_name %>! </h3>
+</div>
+<div class="generic-bar">
+  <span class="img_profile">
+    <%= cl_image_tag @user.photo, height: 150 %>
+  </span>
+  <span>
+    <h3>NAME:</h3>
+  <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+  </span>
+  <span>
+   <h3>E-MAIL:</h3>
+    <h4><%= @user.email %></h4>
+  </span>
+  <span class="buttons">
+    <%= link_to 'Edit details', edit_user_path, class: 'btn-cinza'%>
+  </span class="buttons">
+  <span>
+    <%= link_to 'Add a dog', new_dog_path, class: 'btn-user'%>
+  </span>
+</div>

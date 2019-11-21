@@ -1,13 +1,59 @@
-.maintitle {
-  text-align: center;
-  margin: 40px 0px;
-  // align: middle;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  color: $rbnb_blue;
-  font-weight: bold;
-  font-size: 22px;
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>> TITLE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.generic-bar {
+  display: flex;
+  background-color: rgb(237, 237, 237);
+  justify-content: space-around;
+  padding: 25px;
+  align-items: center;
 }
+
+.generic-bar h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  color: $rbnb_blue;
+  letter-spacing: 4px;
+  margin: 0px;
+}
+
+.blue-bar {
+  background-color: $rbnb_blue;
+  justify-content: space-around;
+  margin: 0 auto;
+  letter-spacing: 6px;
+  width: 100%;
+  padding: 25px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.blue-bar h3 {
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 700;
+  color: $rbnb_blue;
+  letter-spacing: 4px;
+  margin-bottom: 0px;
+  color: $white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.generic-bar h4 {
+  font-size: 16px;
+  color: $gray;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.generic-bar span {
+  text-align: center;
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>> FORM <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 .generic-form {
   background-color: rgba(255, 255, 255, 0.6);
@@ -37,21 +83,61 @@
   letter-spacing: 5px;
 }
 
-.btn-generic {
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>> BUTTON <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+.generic-btn {
   background-color: $rbnb_blue;
   color: $white;
   padding: 10px 18px;
   margin: 10px 0px;
-  border-color: $rbnb_blue;
-  border-width: 1px;
   border-radius: 7px;
   opacity: 1;
   font-size: 16px;
   letter-spacing: 4px;
   align: middle;
+  text-transform: uppercase
 }
-.btn-generic:hover {
-  opacity: .4;
+
+.generic-btn:hover {
+  opacity: .3;
   text-decoration: none;
-  color: $white;
 }
+
+.btn-delete {
+  color: $alert;
+  background-color: transparent;
+  padding: 10px 18px;
+  border-color: $alert;
+  border-width: 2px;
+  border-radius: 7px;
+  opacity: 1;
+  font-size: 16px;
+  letter-spacing: 4px;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.btn-delete:hover {
+  opacity: .8;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
