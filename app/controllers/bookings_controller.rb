@@ -3,7 +3,20 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
-    @bookings = policy_scope(Booking).order(start_date: :asc)
+    @my_bookings = policy_scope(Booking).order(start_date: :asc).where(user_id: current_user.id)
+    @my_old_bookings = @my_bookings.where('status IN (?) OR start_date < ? ', ['rejected'], Time.new)
+
+    @my_bookings = @my_bookings.where('start_date >?', Time.new)
+    @my_bookings = @my_bookings.where('status IN (?)', ['accepted', 'pending'])
+    # dogs = current_user.dogs
+
+    # dog_ids = dogs.map do |dog|
+    #    dog.id
+    # end
+    dog_ids = current_user.dog_ids
+    @my_dogs_bookings = policy_scope(Booking).where(dog_id: dog_ids)
+
+
   end
 
   def new
@@ -34,7 +47,7 @@ class BookingsController < ApplicationController
     if @booking.update(booking_params)
       redirect_to bookings_path, notice: 'Booking was successfully updated.'
     else
-      render :edit
+      redirect_to bookings_path, notice: 'Booking was not updated!.'
     end
   end
 
@@ -57,7 +70,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 
   def set_dog

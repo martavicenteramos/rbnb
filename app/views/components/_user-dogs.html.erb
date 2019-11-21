@@ -1,0 +1,12 @@
+<div class="owndogs">
+  <ol>
+    <% @user.dogs.each do |dog| %>
+  <li>
+    <%= link_to dog.name, dog_path(dog) %> - <%= dog.description %>
+    <small><%= link_to 'Edit details', edit_dog_path(dog)%></small>
+    <small><%= link_to 'Delete dog', dog_path(dog),method: :delete, class: "btn-danger", data: {confirm: "Are you sure?"}%></small>
+  </li>
+  <%end %>
+
+  </ol>
+</div>
