@@ -18,7 +18,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    @record.dog.user_id == user.id
+    record.dog.user_id == user.id
   end
 
   def destroy?

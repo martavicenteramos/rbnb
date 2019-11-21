@@ -19,4 +19,13 @@ class Dog < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+
+  def average_rating
+    sum = 0
+    reviews.each do |review|
+      sum += review.rating
+    end
+
+    sum.to_f / reviews.length
+  end
 end
