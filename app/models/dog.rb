@@ -17,6 +17,12 @@ class Dog < ApplicationRecord
   geocoded_by :city
   after_validation :geocode, if: :will_save_change_to_city?
 
+  include AlgoliaSearch
+
+  algoliasearch do
+    attributes :name, :description
+  end
+
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }

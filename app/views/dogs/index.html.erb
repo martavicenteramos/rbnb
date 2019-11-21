@@ -4,6 +4,14 @@
       <h3 class="mt-5 mb-2">Sorry, we couldn't find any results for your search :(</h3>
       <h4>See other dogs:</h4>
     <% end %>
+    <% if @filter.values.join != "" %>
+      <% filters = @filter.delete_if {|k,v| v == ""} %>
+      <% filters.values.each do |param| %>
+      <div class="mt-3 btn-generic">
+        <i class="fas fa-filter"><%= param %></i>
+        </div>
+      <% end %>
+    <% end %>
       <div class="cards">
         <% @dogs.each do |dog|%>
         <div class="card-trip">
@@ -36,4 +44,18 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 </div>
+
+
+
+<!-- To implement instant search -->
+
+<!--    <div class="ais-InstantSearch">
+ -->
+<!--       <h1>InstantSearch.js e-commerce demo</h1>
+      <div class="right-panel">
+        <div id="searchbox"></div>
+        <div id="hits"></div>
+        <div id="pagination"></div>
+      </div> -->
+      <!-- </div> -->
 
