@@ -4,6 +4,13 @@ class DogsController < ApplicationController
   before_action :set_booking, only: [:show]
 
   def index
+    @dogs = Dog.geocoded
+
+    @markers = @dogs.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude }
+    end
     filter = params["filter"]
     @dogs = policy_scope(Dog).order(created_at: :desc) if filter.values.join == ""
     @dogs = policy_scope(Dog)

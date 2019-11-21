@@ -4,6 +4,9 @@
   height: 70px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   color: #595757;
+  top: 0;
+  position: sticky;
+  z-index:2;
 }
 
 .navbar-lewagon a {
