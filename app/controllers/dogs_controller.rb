@@ -3,7 +3,6 @@ class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
   before_action :set_booking, only: [:show]
 
-
   def index
     @dogs = policy_scope(Dog).order(created_at: :desc)
   end
