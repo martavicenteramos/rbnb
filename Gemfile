@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.6.3'
 
+gem "algoliasearch-rails"
+gem 'geocoder'
 gem 'datetime_picker_input'
 gem 'devise'
 gem 'bootsnap', require: false
@@ -22,7 +24,6 @@ gem 'pundit'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
-
 
 group :development do
   gem 'web-console', '>= 3.3.0'
