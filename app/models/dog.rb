@@ -14,6 +14,9 @@ class Dog < ApplicationRecord
   validates :city, presence: true
   validates :zip_code, presence: true
 
+  geocoded_by :city
+  after_validation :geocode, if: :will_save_change_to_city?
+
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }

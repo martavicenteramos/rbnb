@@ -13,10 +13,12 @@ class DogsController < ApplicationController
     @dogs = @dogs.where('gender = ?', filter["gender"]) if filter["gender"].present?
     @length = @dogs.length
     @dogs = policy_scope(Dog).order(created_at: :desc) if @dogs.length.zero?
+    all_location
   end
 
   def show
     authorize @dog
+    single_location(@dog)
   end
 
   def new
@@ -72,5 +74,26 @@ class DogsController < ApplicationController
 
   def set_booking
     @booking = Booking.new
+  end
+
+  def all_location
+    @dog_loc = Dog.geocoded
+
+    @markers = @dog_loc.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude
+      }
+    end
+  end
+
+  def single_location(dog)
+    @dog = Dog.geocoded.where(id: dog.id).first
+
+    @markers =
+      {
+        lat: @dog.latitude,
+        lng: @dog.longitude
+      }
   end
 end

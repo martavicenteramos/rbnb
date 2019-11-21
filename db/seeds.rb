@@ -8,11 +8,12 @@
 require 'faker'
 puts "Deleting all models"
 
-# Dog.destroy_all
-# User.destroy_all
-# Booking.destroy_all
-# Picture.destroy_all
-# Review.destroy_all
+Review.destroy_all
+Booking.destroy_all
+Picture.destroy_all
+Dog.destroy_all
+User.destroy_all
+
 
 puts "Generating Users"
 puts "Login user"
@@ -43,6 +44,8 @@ puts '...'
 puts "Creating 20 dogs"
 puts "With no photos"
 
+cities = ["lisbon", "paris", "london", "porto", "coimbra", "amsterdam", "venice"]
+
 20.times do
   Dog.create!(
    name:Faker::FunnyName.name,
@@ -52,7 +55,9 @@ puts "With no photos"
    age: rand(0..15),
    breed: Faker::Creature::Dog.breed,
    gender: %w[Male Female].sample,
-   location: Faker::Address.full_address
+   location: Faker::Address.full_address,
+   city: cities.sample,
+   zip_code: Faker::Address.zip_code
    )
 end
 
