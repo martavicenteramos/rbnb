@@ -9,15 +9,16 @@
       </div>
     </div> -->
     <% if @length == 0 %>
-      <h3 class="mt-5 mb-2">Sorry, we couldn't find any results for your search :(</h3>
-      <h4>See other dogs:</h4>
+      <h3 class="mt-5 mb-2 maintitle">Sorry, we couldn't find any results for your search :(</h3>
+      <h4 class="text-black-without-padding" align="center">See other dogs:</h4>
     <% end %>
+    <br>
     <% if @filter.values.join != "" %>
       <% filters = @filter.delete_if {|k,v| v == ""} %>
       <% filters.values.each do |param| %>
-      <btn class="btn btn-outline-secondary">
-        <i class="fas fa-filter"><%= param %></i>
-        </btn>
+      <btn class="btn-filter">
+        <i class="fas fa-filter">&nbsp</i> <%= param %>
+      </btn>
       <% end %>
     <% end %>
       <div class="cards">

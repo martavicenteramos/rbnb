@@ -31,7 +31,7 @@
     <h4><%= @dog.gender %></h4>
   </span>
   <span>
-    <h3>Rating:</h3>
+    <h3>RATING:</h3>
     <% if @dog.average_rating.nan? %>
       <h4>--</h4>
     <% else %>
@@ -47,9 +47,9 @@
       <div class="row">
         <div class="col-md textprofile mt-5">
           <h4 class="othertitle">Hello, I'm <%= @dog.name %>!</h4>
-          <p class="text-black-small"><%= @dog.city.capitalize() %></p>
+          <p class="text-black-small"><strong>CITY:</strong>&nbsp<%= @dog.city.capitalize() %></p>
           <div class="border-top border-bottom mb-4">
-            <p class="text-black-small mt-2 "><%= @dog.description %></p>
+            <p class="text-black-small mt-2 "><strong>ABOUT ME:</strong>&nbsp<%= @dog.description %>/p>
           </div>
         </div>
       </div>
@@ -60,17 +60,18 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <p><small> <%= @dog.location %></small></p>
+    <br>
     <div class="border-bottom">
       <% @dog.reviews.each do |review| %>
       <div class="d-flex align-items-start">
         <%= cl_image_tag review.booking.user.photo, class: "avatar" %>
         <div class="ml-4">
-          <p class="mb-0"><strong><%= review.booking.user.first_name %></strong></p>
-          <p><small><%= review.created_at.strftime("%B %Y") %></small></p>
+          <p class="mb-0 text-black-without-padding"><strong><%= review.booking.user.first_name %></strong></p>
+          <p class="text-black-without-padding"><small><%= review.created_at.strftime("%B %Y") %></small></p>
         </div>
       </div>
-      <p><%= '⭐️'* review.rating %><small><%= review.rating %>/10</small></p>
-      <p class="mb-2"><%= review.description %></p>
+      <p class="text-black-without-padding"><%= '⭐️'* review.rating %><small><%= review.rating %>/10</small></p>
+      <p class="mb-2 text-black-without-padding"><%= review.description %></p>
       <% end %>
     </div>
     </div>
