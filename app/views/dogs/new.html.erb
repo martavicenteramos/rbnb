@@ -1,8 +1,8 @@
-<h1>Add your puperity!</h1>
+<h1 class="maintitle">Add your puperity!</h1>
 
 <div class="container">
   <div class="row">
-    <div class="col" id="edit">
+    <div class="col generic-form" id="edit">
       <%= simple_form_for @dog do |f| %>
       <%= f.input :name%>
       <%= f.input :description%>
@@ -11,9 +11,9 @@
       <%= f.input :gender, collection: [ "Male", "Female"]%>
       <%= f.input :age%>
       <%= f.input :location%>
-      <%= f.button :submit, "Update", class:"btn btn-primary" %>
+      <%= f.button :submit, "Update", class:"btn-generic" %>
       <% end %>
-      <%= link_to 'Go back', user_path(current_user), class: 'btn btn-primary mt-1 center-block'%>
+      <%= link_to 'Go back', user_path(current_user), class: 'btn-generic fundo-cinza mt-1 center-block'%>
     </div>
 </div>
 
