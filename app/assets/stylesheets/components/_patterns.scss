@@ -191,6 +191,24 @@
   color: $white;
 }
 
+.btn-filter {
+  color: $rbnb_blue;
+  background-color: transparent;
+  padding: 25px 18px;
+  margin-top: 20px;
+  align: center;
+  border-color: $rbnb_blue;
+  border-width: 1px;
+  border-radius: 7px;
+  opacity: 1;
+  font-size: 14px;
+  letter-spacing: 4px;
+  align-items: center;
+  font-style: "Open Sans";
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
 .pad-cont {
   margin-left: 15px;
 }
@@ -234,3 +252,53 @@
   margin-bottom: 0px;
   padding: 20px;
 }
+
+.text-black-without-padding {
+  font-size: 16px;
+  color: #353535;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.text-strongblack-without-padding {
+  font-size: 16px;
+  color: #0D0000;
+  opacity: 1;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.cinzar {
+  color: $darkgray;
+}
+
+.black-title {
+  font-size: 16px;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.blue-title {
+  font-size: 16px;
+  color: $rbnb_blue;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.gray-title {
+  font-size: 16px;
+  color: $darkgray;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+

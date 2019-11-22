@@ -1,10 +1,10 @@
 <%= notice %>
 <div class="container">
   <% if @my_bookings.length == 0 %>
-    <h2 class="mt-5">You have no bookings, get yourself some!</h2>
+    <h2 class="mt-5 maintitle">You have no bookings, get yourself some!</h2>
 
   <% else %>
-    <h2 class="mt-5">Here are your bookings: </h2>
+    <h2 class="mt-5 maintitle">Here are your bookings: </h2>
     <% @my_bookings.each do |booking| %>
     <div class= "d-flex align-items-center">
       <div class="card-product">
@@ -14,10 +14,10 @@
         <%= cl_image_tag booking.dog.pictures.first.photo %>
         <% end %>
         <div class="card-product-infos">
-          <h2>Booking from <strong><%= booking.start_date.strftime("%B %d %Y") %></strong> to <strong><%= booking.end_date.strftime("%B %d %Y")  %></strong></h2>
-          <p>Dog name: <%= booking.dog.name %></p>
-          <p>Location: <%= booking.dog.location %></p>
-          <p>Booking status: <%= booking.status  %>
+          <h2 class="gray-title">Booking from <strong><%= booking.start_date.strftime("%B %d %Y") %></strong> to <strong><%= booking.end_date.strftime("%B %d %Y")  %></strong></h2>
+          <p class="text-strongblack-without-padding"><strong>Dog name:</strong> <%= booking.dog.name %></p>
+          <p class="text-strongblack-without-padding"><strong>Location:</strong> <%= booking.dog.location %></p>
+          <p class="text-strongblack-without-padding"><strong>Booking status:</strong> <%= booking.status  %>
           </p>
         </div>
       </div>
@@ -37,12 +37,12 @@
     <% end %>
   <% end %>
 </div>
-
+<hr>
 <div class="container">
   <% if @my_dogs_bookings.length == 0 %>
-    <h2 class="mt-5">Your dog has not been booked or you have no dogs to rent!</h2>
+    <h2 class="mt-5 maintitle">Your dog has not been booked or you have no dogs to rent!</h2>
   <% else %>
-    <h2 class="mt-5">Here are your bookings: </h2>
+    <h2 class="mt-5 maintitle">your dog's bookings </h2>
     <% @my_dogs_bookings.each do |booking| %>
     <div class= "d-flex align-items-center">
       <div class="card-product">
@@ -52,10 +52,10 @@
         <%= cl_image_tag booking.dog.pictures.first.photo %>
         <% end %>
         <div class="card-product-infos">
-          <h2>Booking from <strong><%= booking.start_date.strftime("%B %d %Y") %></strong> to <strong><%= booking.end_date.strftime("%B %d %Y")  %></strong></h2>
-          <p>Dog name: <%= booking.dog.name %></p>
-          <p>Location: <%= booking.dog.location %></p>
-          <p>Booking status: <%= booking.status  %>
+          <h2 class="gray-title" >Booking from <strong><%= booking.start_date.strftime("%B %d %Y") %></strong> to <strong><%= booking.end_date.strftime("%B %d %Y")  %></strong></h2>
+          <p class="text-strongblack-without-padding"><strong>Dog name:</strong> <%= booking.dog.name %></p>
+          <p class="text-strongblack-without-padding"><strong>Location:</strong> <%= booking.dog.location %></p>
+          <p class="text-strongblack-without-padding"><strong>Booking status:</strong> <%= booking.status  %>
           <%= link_to "Accept" ,booking_path(booking, booking:{status: 'accepted'}), method: :patch  %>
           <%= link_to "Reject" ,booking_path(booking, booking:{status: 'rejected'}), method: :patch  %></p>
         </div>
@@ -64,9 +64,9 @@
     <% end %>
   <% end %>
 </div>
-
+<hr>
 <div class="container">
-  <h2 class="mt-5">Your bookings history</h2>
+  <h2 class="mt-5 maintitle">Your bookings history</h2>
   <% @my_old_bookings.each do |booking| %>
     <div class= "d-flex align-items-center">
       <div class="card-product">
@@ -76,10 +76,10 @@
         <%= cl_image_tag booking.dog.pictures.first.photo %>
         <% end %>
         <div class="card-product-infos">
-          <h2>Booking from <strong><%= booking.start_date.strftime("%B %d %Y") %></strong> to <strong><%= booking.end_date.strftime("%B %d %Y")  %></strong></h2>
-          <p>Dog name: <%= booking.dog.name %></p>
-          <p>Location: <%= booking.dog.location %></p>
-          <p>Booking status: <%= booking.status  %></p>
+          <h2 class="gray-title">Booking from <strong><%= booking.start_date.strftime("%B %d %Y") %></strong> to <strong><%= booking.end_date.strftime("%B %d %Y")  %></strong></h2>
+          <p class="text-strongblack-without-padding"><strong>Dog name:</strong> <%= booking.dog.name %></p>
+          <p class="text-strongblack-without-padding"><strong>Location:</strong> <%= booking.dog.location %></p>
+          <p class="text-strongblack-without-padding"><strong>Booking status:</strong> <%= booking.status  %></p>
         </div>
       </div>
     </div>
