@@ -13,6 +13,7 @@ Booking.destroy_all
 Picture.destroy_all
 Dog.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 
 puts "Generating Users"
@@ -48,9 +49,9 @@ cities = ["lisbon", "paris", "london", "porto", "coimbra", "amsterdam", "venice"
 
 20.times do
   Dog.create!(
-   name:Faker::FunnyName.name,
+   name:Faker::Creature::Dog.name,
    user: User.all.sample,
-   description:Faker::Creature::Dog.meme_phrase,
+   description:Faker::TvShows::GameOfThrones.quote,
    size: %w[Small Medium Large].sample,
    age: rand(0..15),
    breed: Faker::Creature::Dog.breed,
@@ -60,7 +61,50 @@ cities = ["lisbon", "paris", "london", "porto", "coimbra", "amsterdam", "venice"
    zip_code: Faker::Address.zip_code
    )
 end
-
-
 puts "Dogs and users have been created"
+
+puts "Generating bookings"
+
+Dog.all.each do |dog|
+
+  Booking.create!(
+    user_id: User.all.sample.id,
+    dog_id: dog.id,
+    status: %w[rejected accepted pending].sample,
+    start_date: Faker::Date.backward(days: 14),
+    end_date:Faker::Date.forward(days: 14)
+    )
+
+  Booking.create!(
+  user_id: User.all.sample.id,
+  dog_id: dog.id,
+  status: %w[rejected accepted pending].sample,
+  start_date: Faker::Date.in_date_period(year: 2017),
+  end_date:Faker::Date.in_date_period(year: 2018)
+  )
+
+  Review.create!(
+    rating: rand(1..10),
+    description: Faker::Quote.yoda,
+    booking_id: Booking.last.id
+    )
+
+  Booking.create!(
+  user_id: User.all.sample.id,
+  dog_id: dog.id,
+  status: %w[rejected accepted pending].sample,
+  start_date: Faker::Date.in_date_period(year: 2015),
+  end_date:Faker::Date.in_date_period(year: 2016)
+  )
+
+  Review.create!(
+    rating: rand(1..10),
+    description: Faker::Quote.most_interesting_man_in_the_world,
+    booking_id: Booking.last.id
+    )
+
+end
+
+
+
 
