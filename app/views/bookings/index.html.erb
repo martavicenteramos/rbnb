@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-    <% if booking.review.nil? %>
+    <% if booking.review.nil? && booking.status == "accepted"%>
     <div class="row">
       <div class="col mt-2">
         <h2>You havent written the review! Write one!</h2>

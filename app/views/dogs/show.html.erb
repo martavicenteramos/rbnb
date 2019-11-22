@@ -32,7 +32,11 @@
   </span>
   <span>
     <h3>Rating:</h3>
-    <h4><%= @dog.average_rating %></h4>
+    <% if @dog.average_rating.nan? %>
+      <h4>--</h4>
+    <% else %>
+      <h4><%= @dog.average_rating %></h4>
+    <% end %>
   </span>
 </div>
 
@@ -56,6 +60,19 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
     <p><small> <%= @dog.location %></small></p>
+    <div class="border-bottom">
+      <% @dog.reviews.each do |review| %>
+      <div class="d-flex align-items-start">
+        <%= cl_image_tag review.booking.user.photo, class: "avatar" %>
+        <div class="ml-4">
+          <p class="mb-0"><strong><%= review.booking.user.first_name %></strong></p>
+          <p><small><%= review.created_at.strftime("%B %Y") %></small></p>
+        </div>
+      </div>
+      <p><%= '⭐️'* review.rating %><small><%= review.rating %>/10</small></p>
+      <p class="mb-2"><%= review.description %></p>
+      <% end %>
+    </div>
     </div>
     <div class="calendar px-4 py-2 m-5">
       <p class = "widget-content" data-id="<%= @dog.unavailable_dates.to_json %>"></p>
