@@ -1,34 +1,44 @@
 <%= render 'components/user-details' %>
 
+<% @user.dogs.each do |dog| %>
 
-<div class="owndogs">
-  <% @user.dogs.each do |dog| %>
-    <div class="dogs-bar">
-      <span class="centered">
-        <% if dog.pictures.first.nil? %>
+<div style="overflow-x:auto;">
+  <table class="table-dogs">
+    <thead>
+      <tr>
+        <th>PICTURE</th>
+        <th>DOG</th>
+        <th>DESCRIPTION</th>
+        <th>EDIT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center">
+          <% if dog.pictures.first.nil? %>
           <%= image_tag 'dog-face.png' , :class => "dog-pic"%>
-        <% else %>
-        <%= cl_image_tag dog.pictures.first.photo, class: "avatar-dog" %>
-        <% end  %>
-      </span>
-      <span>
-        <h3>DOG'S NAME:</h3>
-        <h4><%= link_to dog.name, dog_path(dog) %></h4>
-      </span>
-      <span>
-       <h3>DESCRIPTION:</h3>
-        <h4><%= dog.description %></h4>
-      </span>
-      <span class="buttons">
-        <%= link_to 'Edit dog', edit_dog_path(dog), class: 'btn-cinza-clean'%>
-      </span class="buttons">
-      <span>
-        <%= link_to 'Delete dog', dog_path(dog),method: :delete, class: 'btn-delete', data: {confirm: "Are you sure?"}%>
-      </span>
-    </div>
-    <%end%>
+          <% else %>
+          <%= cl_image_tag dog.pictures.first.photo, class: "avatar-dog" %>
+          <% end  %>
+        </td>
+        <td align="center">
+          <%= link_to dog.name, dog_path(dog) %>
+        </td>
+        <td align="center" class="td-description">
+          <%= dog.description %>
+        </td>
+        <td align="center" class="buttons">
+          <span>
+            <%= link_to 'Edit dog', edit_dog_path(dog), class: 'btn-cinza-clean'%>
+          </span>
+          <span>
+            <%= link_to 'Delete dog', dog_path(dog),method: :delete, class: 'btn-delete', data: {confirm: "Are you sure?"}%>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-
+<%end%>
 
 

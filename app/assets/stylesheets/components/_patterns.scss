@@ -3,7 +3,7 @@
 
 .generic-bar {
   display: flex;
-  background-color: rgb(237, 237, 237);
+  background-color: rgba(255, 255, 255, 0.1);
   justify-content: space-around;
   padding: 25px;
   align-items: center;
@@ -51,11 +51,27 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+.clean-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.clean-bar h3 {
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin: 0px;
+  padding: 25px 0px;
+  color: $rbnb_blue;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .blue-bar h3 {
   font-family: "Open Sans";
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  color: $rbnb_blue;
   letter-spacing: 4px;
   margin-bottom: 0px;
   color: $white;
