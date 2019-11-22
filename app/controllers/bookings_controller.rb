@@ -4,9 +4,9 @@ class BookingsController < ApplicationController
 
   def index
     @my_bookings = policy_scope(Booking).order(start_date: :asc).where(user_id: current_user.id)
-    @my_old_bookings = @my_bookings.where('status IN (?) OR start_date < ? ', ['rejected'], Time.new)
+    @my_old_bookings = @my_bookings.where('status IN (?) OR end_date < ? ', ['rejected'], Time.new)
 
-    @my_bookings = @my_bookings.where('start_date >?', Time.new)
+    @my_bookings = @my_bookings.where('start_date > ?', Time.new)
     @my_bookings = @my_bookings.where('status IN (?)', ['accepted', 'pending'])
     # dogs = current_user.dogs
 

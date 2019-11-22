@@ -11,14 +11,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(review_params)
-    @review.booking = @booking
-    authorize @review
+    if @booking.status == "accepted"
+      @review = Review.create(review_params)
+      @review.booking = @booking
+      authorize @review
 
-    if @review.save!
-      redirect_to root_path
-    else
-      render :new
+      if @review.save!
+        redirect_to 'bookings_path', notice: 'Review was successfully created.'
+      else
+        render :new
+      end
     end
   end
 
