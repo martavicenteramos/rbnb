@@ -13,22 +13,23 @@ class DogsController < ApplicationController
     @dogs = @dogs.where('gender = ?', @filter["gender"]) if @filter["gender"].present?
     @dogs = @dogs.near(@filter["city"], 10) if @filter["city"].present?
 
-    @dogs = @dogs.search(params[:search])
+    # @dogs = @dogs.search(params[:search])
 
     @length = @dogs.length
     @dogs = policy_scope(Dog).order(created_at: :desc) if @dogs.length.zero?
-    all_location
+    all_location(@dogs)
   end
 
   def show
     authorize @dog
-    single_location(@dog)
+    @dog_loc = [@dog]
+    all_location(@dog_loc)
   end
 
   def new
     @dog = Dog.new
     authorize @dog
-    authorize @booking
+    # authorize @booking
   end
 
   def create
@@ -80,24 +81,12 @@ class DogsController < ApplicationController
     @booking = Booking.new
   end
 
-  def all_location
-    @dog_loc = Dog.geocoded
-
-    @markers = @dog_loc.map do |dog|
+  def all_location(dog)
+    @markers = dog.map do |dog|
       {
         lat: dog.latitude,
         lng: dog.longitude
       }
     end
-  end
-
-  def single_location(dog)
-    @dog = Dog.geocoded.where(id: dog.id).first
-
-    @markers =
-      {
-        lat: @dog.latitude,
-        lng: @dog.longitude
-      }
   end
 end

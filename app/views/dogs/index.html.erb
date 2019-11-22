@@ -1,5 +1,13 @@
 <div class="d-flex">
   <div class="index-products col-8">
+<!--     <div class="ais-InstantSearch">
+      <h1>InstantSearch.js e-commerce demo</h1>
+      <div class="right-panel">
+        <div id="searchbox"></div>
+        <div id="hits"></div>
+        <div id="pagination"></div>
+      </div>
+    </div> -->
     <% if @length == 0 %>
       <h3 class="mt-5 mb-2">Sorry, we couldn't find any results for your search :(</h3>
       <h4>See other dogs:</h4>
@@ -28,7 +36,11 @@
                 <p><%= dog.city.capitalize()%></p>
               <div class="d-flex justify-content-between">
                 <h6 class="grayy"><i class="fas fa-arrows-alt-v bluee"></i>&nbsp<i class="fas fa-dog"></i>&nbsp<strong><%= dog.size.first.upcase%></strong></h6>
-                <h6 class="grayy"><i class="fas fa-star yelloww"></i>&nbsp 4.6 </h6>
+                <% if dog.average_rating.nan? %>
+                  <h6 class="grayy"><i class="fas fa-star yelloww"></i>&nbsp --</h6>
+                <% else %>
+                  <h6 class="grayy"><i class="fas fa-star yelloww"></i>&nbsp <%= dog.average_rating %></h6>
+                <% end  %>
                 <h6 class="grayy"> <%= dog.age %>&nbsp<small>y/o</small></h6>
               </div>
             </div>
@@ -50,13 +62,5 @@
 
 <!-- To implement instant search -->
 
-<!--    <div class="ais-InstantSearch">
- -->
-<!--       <h1>InstantSearch.js e-commerce demo</h1>
-      <div class="right-panel">
-        <div id="searchbox"></div>
-        <div id="hits"></div>
-        <div id="pagination"></div>
-      </div> -->
-      <!-- </div> -->
+
 
