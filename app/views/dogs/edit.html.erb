@@ -8,7 +8,8 @@
       <%= f.input :size,  collection: [ "Small", "Medium", "Large"]%>
       <%= f.input :breed%>
       <%= f.input :gender, collection: [ "Male", "Female"]%>
-      <%= f.input :location%>
+      <%= f.input :location %>
+      <%= f.input :city %>
       <%= f.button :submit, "Update", class:"btn-generic" %>
       <% end %>
       <%= link_to 'Go back', user_path(@dog.user_id), class: 'btn-generic fundo-cinza'%>

@@ -12,7 +12,6 @@ class Dog < ApplicationRecord
   validates :gender, presence: true, inclusion: { in: %w[Male Female] }
   validates :location, presence: true
   validates :city, presence: true
-  validates :zip_code, presence: true
 
   geocoded_by :city
   after_validation :geocode, if: :will_save_change_to_city?

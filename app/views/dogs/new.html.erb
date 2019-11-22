@@ -11,7 +11,8 @@
       <%= f.input :gender, collection: [ "Male", "Female"]%>
       <%= f.input :age%>
       <%= f.input :location%>
-      <%= f.button :submit, "Update", class:"btn-generic" %>
+      <%= f.input :city%>
+      <%= f.button :submit, "Update", class:"btn-generic", method: :post %>
       <% end %>
       <%= link_to 'Go back', user_path(current_user), class: 'btn-generic fundo-cinza mt-1 center-block'%>
     </div>

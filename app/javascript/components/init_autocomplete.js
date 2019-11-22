@@ -5,6 +5,10 @@ const initAutocomplete = () => {
   if (addressInput) {
     places({ container: addressInput });
   }
+  const cityInput = document.getElementById('dog_city');
+  if (cityInput) {
+    places({ container: cityInput });
+  }
 };
 
 export { initAutocomplete };

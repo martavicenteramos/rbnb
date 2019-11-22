@@ -21,6 +21,7 @@ class DogsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     authorize @dog
     @dog_loc = [@dog]
     all_location(@dog_loc)
@@ -60,10 +61,10 @@ class DogsController < ApplicationController
     authorize @dog
 
     if @dog.update(dog_params)
-      @dog.save
-      render :show
+      redirect_to user_path(current_user)
     else
-      render :show
+      @picture = Picture.new
+      render :edit
     end
   end
 
@@ -74,7 +75,7 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :description, :size, :age, :breed, :gender, :location, :filter)
+    params.require(:dog).permit(:name, :description, :size, :age, :breed, :gender, :location, :city, :filter)
   end
 
   def set_booking
