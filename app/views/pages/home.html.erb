@@ -6,7 +6,7 @@
         <%= f.input :size, as: :select, required: false, collection: %w[Small Medium Large] %>
         <%= f.input :age, required: false %>
         <%= f.input :gender, as: :select, required: false, collection: %w[Male Female] %>
-        <%= f.input :city, required: false %>
+        <%= f.input :city, required: false, input_html: { id: :dog_location} %>
         <%= f.submit :SEARCH, class: "btn-form" %>
       <% end %>
   </div>
@@ -28,7 +28,7 @@
       <div class="card-trip-infos">
         <div class="w-100">
             <h2><%= dog.name %></h2>
-            <p><%= dog.city %></p>
+            <p><%= dog.city.capitalize() %></p>
           <div class="d-flex justify-content-between">
             <h6><i class="fas fa-arrows-alt-v"></i><i class="fas fa-dog"></i> <%= dog.size.first.upcase %> </h6>
             <h6> <%= dog.age %><small>y/o</small></h6>
