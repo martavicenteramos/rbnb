@@ -23,13 +23,26 @@
       <div class="cards">
         <% @dogs.each do |dog|%>
         <div class="card-trip">
-          <%= link_to dog_path(dog) do %>
-          <% if dog.pictures.first.nil? %>
-            <%= image_tag 'dog-face.png' %>
-            <% else %>
-            <%= cl_image_tag dog.pictures.first.photo, height: 300, width: 400, crop: :fill %>
-            <% end  %>
-          <% end  %>
+          <div class="card-topo">
+            <div class= "gender-tag">
+              <% if dog.gender === "Male" %>
+                <div class="bolinha"></div>
+                <div><h6 id= "male"><i class='fas fa-mars'></i></h6></div>
+              <% else %>
+                <div class="bolinha"></div>
+                <div><h6 id="female"><i class='fas fa-venus'></i></h6></div>
+              <% end  %>
+            </div>
+            <div class="card-image">
+              <%= link_to dog_path(dog) do %>
+              <% if dog.pictures.first.nil? %>
+                <%= image_tag 'dog-face.png' %>
+                <% else %>
+                <%= cl_image_tag dog.pictures.first.photo, height: 300, width: 400, crop: :fill %>
+                <% end  %>
+              <% end  %>
+            </div>
+          </div>
           <div class="card-trip-infos">
             <div class="w-100">
                 <h2><%= dog.name %></h2>

@@ -3,6 +3,9 @@
   background: #F4F4F4;
   max-width: 335px;
 
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .card-trip img {
@@ -10,9 +13,6 @@
   width: 100%;
   object-fit: cover;
 
-  &:hover {
-    opacity: 0.5;
-  }
 }
 
 .card-trip h2 {
@@ -96,6 +96,10 @@
   margin-top: 8px;
 }
 
+.card-topo {
+  position: relative;
+}
+
 .spacing {
   margin-left: 5px;
 }
@@ -104,9 +108,54 @@
   color: $rbnb_blue;
 }
 
+.bolinha {
+  height: 55px;
+  width: 55px;
+  background-color: rgba(255, 255, 255, .95);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 3px 3px 3px rgba(30, 30, 30, 0.01);
+}
+
+#male {
+  color: $rbnb_blue;
+  text-align: center;
+  font-size: 35px;
+  margin: 0 auto;
+  position: absolute;
+  left: 15.7px;
+  top: 7px;
+  opacity: .7;
+}
+
+#female {
+  color: #ED0080;
+}
+
+.gender-tag {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position:absolute;
+  top: 80%;
+  left: 75%;
+}
+
+.gender-tag h6 {
+    text-align: center;
+    font-size: 35px;
+    margin: 0 auto;
+    position: absolute;
+    left: 17.5px;
+    top: 7px;
+    opacity: .7;
+}
+
 .card-product .card-product-infos {
   padding: 16px;
 }
+
 
 .grayy {
   color: $darkgray;
