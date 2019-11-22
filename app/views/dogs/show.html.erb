@@ -42,10 +42,10 @@
     <div class="flex-grow-1">
       <div class="row">
         <div class="col-md textprofile mt-5">
-          <h4>Hello, I'm <%= @dog.name %></h4>
-          <p><%= @dog.city.capitalize() %></p>
+          <h4 class="othertitle">Hello, I'm <%= @dog.name %>!</h4>
+          <p class="text-black-small"><%= @dog.city.capitalize() %></p>
           <div class="border-top border-bottom mb-4">
-            <p class="mt-2"><%= @dog.description %></p>
+            <p class="text-black-small mt-2 "><%= @dog.description %></p>
           </div>
         </div>
       </div>
@@ -57,9 +57,10 @@
     </div>
     <p><small> <%= @dog.location %></small></p>
     </div>
-    <div class="calendar border px-4 py-2 m-5">
+    <div class="calendar px-4 py-2 m-5">
       <p class = "widget-content" data-id="<%= @dog.unavailable_dates.to_json %>"></p>
-      <h4>Book <%= @dog.name.split.first %>:</h4>
+      <h4 class="othertitle">Book <%= @dog.name.split.first %>:</h4>
+      <div class="generic-form paddingb">
       <%= simple_form_for [@dog, @booking]  do |f| %>
         <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
         <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
