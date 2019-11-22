@@ -168,9 +168,26 @@
   margin-left: 15px;
 }
 
+.deletar {
+  background-color: $alert;
+  padding: 6px 15px;
+  font-size: 12px;
+  margin-top: 60px;
+}
 
+.edit {
+  display: flex;
+  flex-direction: row;
+}
 
+.picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
 
-
-
+.space-top {
+  margin-top: 30px;
+}
 
